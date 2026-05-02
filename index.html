@@ -1,83 +1,124 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Forex Clone</title>
+    <title>Forex Hero</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background: #020617;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #cbd5f5;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            padding: 80px 20px;
+            background: linear-gradient(to right, #020617, #0f172a);
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .btn {
+            background: #38bdf8;
+            border: none;
+            padding: 12px 25px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #0ea5e9;
+        }
+
+        .market {
+            padding: 40px;
+        }
+
+        .price-box {
+            background: #020617;
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        footer {
+            background: #020617;
+            padding: 10px;
+            margin-top: 30px;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 
 <body>
 
-    <center>
-        <h2>Forex Clone</h2>
-        
-        <hr width="80%">
+<header>
+    <h2>Forex Hero</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Markets</a>
+        <a href="#">Trade</a>
+        <a href="#">Login</a>
+    </nav>
+</header>
 
-        <!-- Navbar -->
-        <p>
-            <a href="#">Home</a> |
-            <a href="#">Markets</a> |
-            <a href="#">Trade</a> |
-            <a href="#">Login</a>
-        </p>
+<section class="hero">
+    <h1>Trade Forex Like a Pro</h1>
+    <p>Fast, simple & powerful trading experience</p>
+    <button class="btn" onclick="startTrade()">Start Trading</button>
+</section>
 
-        <hr width="80%">
+<section class="market">
+    <h2>Live Market</h2>
+    
+    <div class="price-box">
+        <p>EUR/USD</p>
+        <h1 id="price">1.10</h1>
+        <button class="btn" onclick="updatePrice()">Refresh</button>
+    </div>
+</section>
 
-        <!-- Hero Section -->
-        <h1>Trade Forex Easily</h1>
-        <p>Simple forex trading platform</p>
+<footer>
+    <p>© 2026 Forex Hero | Aashir`s Project</p>
+</footer>
 
-        <button>Start Trading</button>
+<script>
+    function startTrade() {
+        alert("Trading Started!");
+    }
 
-        <br><br>
-        <hr width="60%">
-
-        <!-- Market Section -->
-        <h2>Live Market</h2>
-
-        <table border="1" cellpadding="10">
-            <tr>
-                <th>Currency Pair</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td>EUR/USD</td>
-                <td>1.10</td>
-            </tr>
-            <tr>
-                <td>GBP/USD</td>
-                <td>1.25</td>
-            </tr>
-        </table>
-
-        <br>
-        <button>Refresh</button>
-
-        <br><br>
-        <hr width="60%">
-
-        <!-- Form -->
-        <h2>Open Account</h2>
-
-        <form>
-            Name:<br>
-            <input type="text"><br><br>
-
-            Email:<br>
-            <input type="email"><br><br>
-
-            Password:<br>
-            <input type="password"><br><br>
-
-            <input type="submit" value="Register">
-        </form>
-
-        <br><br>
-        <hr width="80%">
-
-        <!-- Footer -->
-        <p>© 2026 Forex Clone</p>
-
-    </center>
+    function updatePrice() {
+        let price = (1 + Math.random()).toFixed(3);
+        document.getElementById("price").innerText = price;
+    }
+</script>
 
 </body>
 </html>
