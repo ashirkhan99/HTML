@@ -1,124 +1,503 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Forex Hero</title>
+    <title>Forex Hero - Professional Trading Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             margin: 0;
-            font-family: Arial;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0f172a;
             color: white;
-            text-align: center;
+            line-height: 1.6;
         }
 
         header {
-            background: #020617;
-            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 40px;
+            background: rgba(2, 6, 23, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #38bdf8, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         nav a {
             color: #cbd5f5;
-            margin: 10px;
+            margin-left: 30px;
             text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         nav a:hover {
             color: #38bdf8;
         }
 
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #38bdf8;
+        }
+
         .hero {
-            padding: 80px 20px;
-            background: linear-gradient(to right, #020617, #0f172a);
+            height: 100vh;
+            background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), 
+                        url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(56,189,248,0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .hero h1 {
-            font-size: 32px;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            z-index: 2;
+            position: relative;
         }
 
         .btn {
-            background: #38bdf8;
+            background: linear-gradient(45deg, #38bdf8, #0ea5e9);
+            padding: 15px 40px;
             border: none;
-            padding: 12px 25px;
-            color: black;
-            font-weight: bold;
+            border-radius: 50px;
             cursor: pointer;
-            border-radius: 5px;
-            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(56,189,248,0.4);
+            z-index: 2;
+            position: relative;
         }
 
         .btn:hover {
-            background: #0ea5e9;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(56,189,248,0.6);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 40px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .market {
-            padding: 40px;
+            padding: 80px 40px;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
         }
 
-        .price-box {
-            background: #020617;
-            display: inline-block;
+        .market h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, #38bdf8, #60a5fa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .chart-placeholder {
+            height: 400px;
+            background: linear-gradient(135deg, #020617, #1e293b);
+            margin: 40px auto;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #64748b;
+            border: 2px dashed #475569;
+            backdrop-filter: blur(10px);
+        }
+
+        table {
+            margin: 40px auto;
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 1000px;
+            background: rgba(2, 6, 23, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        th, td {
             padding: 20px;
-            border-radius: 10px;
-            margin-top: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        th {
+            background: linear-gradient(45deg, #38bdf8, #0ea5e9);
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .price {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .change.up {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .change.down {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(2, 6, 23, 0.8);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(56,189,248,0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56,189,248,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(56,189,248,0.3);
+            border-color: #38bdf8;
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #38bdf8;
+        }
+
+        .form-section {
+            padding: 80px 40px;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(2, 6, 23, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            backdrop-filter: blur(20px);
+        }
+
+        .form-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #38bdf8, #60a5fa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        input {
+            width: 100%;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder {
+            color: #94a3b8;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #38bdf8;
+            box-shadow: 0 0 20px rgba(56,189,248,0.3);
+            background: rgba(255,255,255,0.15);
         }
 
         footer {
+            text-align: center;
+            padding: 40px;
             background: #020617;
-            padding: 10px;
-            margin-top: 30px;
             color: #94a3b8;
+            border-top: 1px solid #334155;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav a {
+                margin: 5px 15px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+    <header>
+        <div class="logo">Forex Hero</div>
+        <nav>
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="#"><i class="fas fa-chart-line"></i> Markets</a>
+            <a href="#"><i class="fas fa-trade-federation"></i> Trade</a>
+            <a href="#"><i class="fas fa-user"></i> Login</a>
+        </nav>
+    </header>
 
-<header>
-    <h2>Forex Hero</h2>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Markets</a>
-        <a href="#">Trade</a>
-        <a href="#">Login</a>
-    </nav>
-</header>
+    <section class="hero">
+        <h1>Trade Forex Like a Pro</h1>
+        <p>Lightning-fast execution • Enterprise-grade security • 24/7 professional support</p>
+        <button class="btn"><i class="fas fa-rocket"></i> Start Trading Now</button>
+        <div class="stats">
+            <div><i class="fas fa-users"></i> 25K+ Traders</div>
+            <div><i class="fas fa-dollar-sign"></i> $1.2B Volume</div>
+            <div><i class="fas fa-shield-alt"></i> 99.99% Uptime</div>
+        </div>
+    </section>
 
-<section class="hero">
-    <h1>Trade Forex Like a Pro</h1>
-    <p>Fast, simple & powerful trading experience</p>
-    <button class="btn" onclick="startTrade()">Start Trading</button>
-</section>
+    <section class="market">
+        <h2>Live Market Data</h2>
+        <div class="chart-placeholder">
+            <i class="fas fa-chart-line" style="font-size: 4rem; margin-right: 20px; color: #38bdf8;"></i>
+            Real-time Interactive Charts
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Pair</th>
+                    <th>Bid</th>
+                    <th>Ask</th>
+                    <th>Spread</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>EUR/USD</strong></td>
+                    <td class="price">1.1023</td>
+                    <td class="price">1.1025</td>
+                    <td class="price">0.0002</td>
+                    <td class="change up"><i class="fas fa-arrow-up"></i> +0.12%</td>
+                </tr>
+                <tr>
+                    <td><strong>GBP/USD</strong></td>
+                    <td class="price">1.2540</td>
+                    <td class="price">1.2543</td>
+                    <td class="price">0.0003</td>
+                    <td class="change up"><i class="fas fa-arrow-up"></i> +0.08%</td>
+                </tr>
+                <tr>
+                    <td><strong>USD/JPY</strong></td>
+                    <td class="price">149.82</td>
+                    <td class="price">149.85</td>
+                    <td class="price">0.03</td>
+                    <td class="change down"><i class="fas fa-arrow-down"></i> -0.15%</td>
+                </tr>
+                <tr>
+                    <td><strong>AUD/USD</strong></td>
+                    <td class="price">0.6587</td>
+                    <td class="price">0.6590</td>
+                    <td class="price">0.0003</td>
+                    <td class="change up"><i class="fas fa-arrow-up"></i> +0.22%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-<section class="market">
-    <h2>Live Market</h2>
-    
-    <div class="price-box">
-        <p>EUR/USD</p>
-        <h1 id="price">1.10</h1>
-        <button class="btn" onclick="updatePrice()">Refresh</button>
-    </div>
-</section>
+    <section class="features">
+        <div class="card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Bank-Grade Security</h3>
+            <p>2FA, cold storage, and enterprise encryption protect your funds 24/7</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-bolt"></i>
+            <h3>Lightning Execution</h3>
+            <p>Sub-10ms trade execution with institutional-grade liquidity providers</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 Expert Support</h3>
+            <p>Dedicated account managers available around the clock</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Advanced Analytics</h3>
+            <p>AI-powered signals, real-time charts, and predictive indicators</p>
+        </div>
+    </section>
 
-<footer>
-    <p>© 2026 Forex Hero | Aashir`s Project</p>
-</footer>
+    <section class="form-section">
+        <div class="form-container">
+            <h2>Join 25K+ Professional Traders</h2>
+            <form id="signupForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Business Email" required>
+                <input type="tel" placeholder="Phone Number">
+                <input type="password" placeholder="Create Password" required minlength="8">
+                <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </form>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #94a3b8;">
+                🔒 SSL Secured • No spam • Unsubscribe anytime
+            </p>
+        </div>
+    </section>
 
-<script>
-    function startTrade() {
-        alert("Trading Started!");
-    }
+    <footer>
+        <p><i class="fas fa-copyright"></i> 2026 Forex Hero | Professional Trading Platform |Made by Aashir | Regulated & Licensed</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Demo Project • All rights reserved</p>
+    </footer>
 
-    function updatePrice() {
-        let price = (1 + Math.random()).toFixed(3);
-        document.getElementById("price").innerText = price;
-    }
-</script>
+    <script>
+        // Live price updates
+        function updatePrices() {
+            const prices = document.querySelectorAll('.price');
+            prices.forEach((price, index) => {
+                const baseValue = parseFloat(price.textContent);
+                const change = (Math.random() - 0.5) * 0.002;
+                const newValue = (baseValue + change).toFixed(index % 2 === 0 ? 4 : 2);
+                price.textContent = newValue;
+                
+                const changeCells = document.querySelectorAll('.change');
+                changeCells.forEach(cell => {
+                    cell.className = Math.random() > 0.5 ? 'change up' :  'change down';
+                });
+            });
+        }
+        setInterval(updatePrices, 3000);
 
+        // Form handling
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('🎉 Account creation successful! Welcome to Forex Hero!');
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
