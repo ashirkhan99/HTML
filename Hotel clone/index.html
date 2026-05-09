@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Maker Hotel - Luxury & Comfort</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>The Maker Hotel - Luxury & Creativity</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -15,13 +15,14 @@
                 <div class="logo">
                     <h2>The Maker Hotel</h2>
                 </div>
-                <ul class="nav-menu" id="navMenu">
+                <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#rooms">Rooms</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger">
+                <div class="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -33,8 +34,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Experience Luxury Redefined</h1>
-            <p>Discover unparalleled comfort and elegance at The Maker Hotel. Your perfect getaway awaits with world-class amenities and personalized service.</p>
+            <h1>Discover Creative Luxury</h1>
+            <p>Where innovation meets elegance. Experience the perfect blend of modern design and timeless hospitality.</p>
             <div class="hero-buttons">
                 <a href="#rooms" class="btn btn-primary">Book Now</a>
                 <a href="#about" class="btn btn-secondary">Learn More</a>
@@ -45,41 +46,41 @@
     <!-- Rooms Section -->
     <section id="rooms" class="rooms">
         <div class="container">
-            <h2 class="section-title fade-in-up">Our Signature Rooms</h2>
+            <div class="section-header">
+                <h2>Our Signature Rooms</h2>
+                <p>Each room is a masterpiece of design and comfort</p>
+            </div>
             <div class="rooms-grid">
-                <article class="room-card fade-in-up">
+                <div class="room-card">
                     <div class="room-image">
-                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&h=300&fit=crop" alt="Deluxe Suite" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1571896349840-0d6f5f44a7ab?w=400&h=300&fit=crop" alt="Deluxe Suite">
                     </div>
                     <div class="room-info">
                         <h3>Deluxe Suite</h3>
-                        <p>Spacious 650 sq ft suite featuring modern amenities, king bed, and breathtaking city skyline views from private balcony.</p>
-                        <div class="room-price">$250<span>/night</span></div>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <p>Spacious 650 sq ft with city views and modern amenities</p>
+                        <div class="room-price">$299/night</div>
                     </div>
-                </article>
-                <article class="room-card fade-in-up">
+                </div>
+                <div class="room-card">
                     <div class="room-image">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=300&fit=crop" alt="Executive Room" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" alt="Executive Room">
                     </div>
                     <div class="room-info">
                         <h3>Executive Room</h3>
-                        <p>Perfect for business travelers with ergonomic work desk, high-speed WiFi, and premium business amenities.</p>
-                        <div class="room-price">$180<span>/night</span></div>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <p>450 sq ft with work desk and premium bedding</p>
+                        <div class="room-price">$229/night</div>
                     </div>
-                </article>
-                <article class="room-card fade-in-up">
+                </div>
+                <div class="room-card">
                     <div class="room-image">
-                        <img src="https://images.unsplash.com/photo-1578683015141-399f1f23f8bb?w=500&h=300&fit=crop" alt="Family Suite" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1578683015141-399f22e92641?w=400&h=300&fit=crop" alt="Maker Studio">
                     </div>
                     <div class="room-info">
-                        <h3>Family Suite</h3>
-                        <p>Comfortable 2-bedroom suite perfect for families, with connecting rooms, kids amenities, and spacious living area.</p>
-                        <div class="room-price">$320<span>/night</span></div>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <h3>Maker Studio</h3>
+                        <p>Creative space with tools and inspiration hub</p>
+                        <div class="room-price">$349/night</div>
                     </div>
-                </article>
+                </div>
             </div>
         </div>
     </section>
@@ -87,21 +88,57 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="about-content fade-in-up">
+            <div class="about-content">
                 <div class="about-text">
-                    <h2>Why Choose The Maker Hotel?</h2>
-                    <p>Located in the vibrant heart of the city, The Maker Hotel seamlessly blends contemporary luxury with genuine hospitality. Our cutting-edge design and world-class facilities create an unforgettable experience for leisure and business travelers alike.</p>
-                    <ul class="features">
-                        <li>✓ 24/7 Personalized Concierge</li>
-                        <li>✓ Rooftop Infinity Pool & Spa</li>
-                        <li>✓ Michelin-Starred Restaurant</li>
-                        <li>✓ Complimentary High-Speed WiFi</li>
-                        <li>✓ 24-Hour Fitness Center</li>
-                        <li>✓ Valet Parking & EV Charging</li>
-                    </ul>
+                    <h2>The Maker Philosophy</h2>
+                    <p>At The Maker Hotel, we believe creativity should be nurtured in spaces that inspire. Our hotel is designed for makers, thinkers, and dreamers who seek more than just a place to sleep—they want a place to create.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <h4>24/7 Maker Lab</h4>
+                            <p>Fully equipped workshop</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Art Gallery</h4>
+                            <p>Rotating local artist exhibits</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Wellness Studio</h4>
+                            <p>Yoga and meditation spaces</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1564507592333-c9164b6b0ce5?w=600&h=450&fit=crop" alt="Hotel Lobby" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop" alt="Hotel Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Gallery</h2>
+                <p>Experience the atmosphere</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="data:image/jpeg;base64,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" alt="Lobby">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop" alt="Restaurant">
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/jpeg;base64,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" alt="Room">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=300&fit=crop" alt="Pool">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop" alt="Spa">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" alt="Bar">
                 </div>
             </div>
         </div>
@@ -110,27 +147,38 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title fade-in-up">Get In Touch</h2>
-            <div class="contact-content fade-in-up">
+            <div class="section-header">
+                <h2>Book Your Stay</h2>
+                <p>Ready to create something extraordinary?</p>
+            </div>
+            <div class="contact-content">
                 <div class="contact-info">
+                    <h3>Get In Touch</h3>
                     <div class="contact-item">
-                        <h3>📍 Address</h3>
-                        <p>123 Maker Street<br>City Center, NYC 10001<br>United States</p>
+                        <h4>📍 Location</h4>
+                        <p>123 Maker Street, Creative District<br>NY 10001</p>
                     </div>
                     <div class="contact-item">
-                        <h3>📞 Phone</h3>
-                        <p>+1 (555) 123-4567<br>Available 24/7</p>
+                        <h4>📞 Phone</h4>
+                        <p>+923323065946</p>
                     </div>
                     <div class="contact-item">
-                        <h3>✉️ Email</h3>
-                        <p>hello@themakerhotel.com<br>reservations@themakerhotel.com</p>
+                        <h4>✉️ Email</h4>
+                        <p>ashirkhan30sep@gmail.com</p>
                     </div>
                 </div>
-                <form class="contact-form" onsubmit="alert('Thank you for your message! We will contact you within 24 hours.'); return false;">
-                    <input type="text" placeholder="Your Name *" required>
-                    <input type="email" placeholder="Your Email *" required>
-                    <input type="tel" placeholder="Your Phone">
-                    <textarea placeholder="Tell us about your stay requirements..." rows="5" required></textarea>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number">
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Message" rows="5"></textarea>
+                    </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
@@ -143,20 +191,31 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>The Maker Hotel</h3>
-                    <p>Where luxury meets innovation. Your home away from home.</p>
+                    <p>Where creativity finds its home.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
-                    <a href="#home">Home</a>
-                    <a href="#rooms">Rooms & Suites</a>
-                    <a href="#about">About Us</a>
-                    <a href="#contact">Contact</a>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#rooms">Rooms</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p>📍 123 Maker Street, NY 10001</p>
+                    <p>📞 +923323065946
+                    </p>
+                    <p>✉️ ashirkhan30sep@gmail.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 The Maker Hotel. All rights reserved. <strong>Made by Aashir</strong></p>
+                <p>&copy; 2024 The Maker Hotel. Made by <strong>Aashir</strong></p>
             </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
