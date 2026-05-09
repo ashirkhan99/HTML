@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Maker Hotel - Luxury & Comfort</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>The Maker Hotel</h2>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Experience Luxury Redefined</h1>
+            <p>Discover unparalleled comfort and elegance at The Maker Hotel. Your perfect getaway awaits with world-class amenities and personalized service.</p>
+            <div class="hero-buttons">
+                <a href="#rooms" class="btn btn-primary">Book Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="rooms">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Our Signature Rooms</h2>
+            <div class="rooms-grid">
+                <article class="room-card fade-in-up">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&h=300&fit=crop" alt="Deluxe Suite" loading="lazy">
+                    </div>
+                    <div class="room-info">
+                        <h3>Deluxe Suite</h3>
+                        <p>Spacious 650 sq ft suite featuring modern amenities, king bed, and breathtaking city skyline views from private balcony.</p>
+                        <div class="room-price">$250<span>/night</span></div>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </article>
+                <article class="room-card fade-in-up">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=300&fit=crop" alt="Executive Room" loading="lazy">
+                    </div>
+                    <div class="room-info">
+                        <h3>Executive Room</h3>
+                        <p>Perfect for business travelers with ergonomic work desk, high-speed WiFi, and premium business amenities.</p>
+                        <div class="room-price">$180<span>/night</span></div>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </article>
+                <article class="room-card fade-in-up">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1578683015141-399f1f23f8bb?w=500&h=300&fit=crop" alt="Family Suite" loading="lazy">
+                    </div>
+                    <div class="room-info">
+                        <h3>Family Suite</h3>
+                        <p>Comfortable 2-bedroom suite perfect for families, with connecting rooms, kids amenities, and spacious living area.</p>
+                        <div class="room-price">$320<span>/night</span></div>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content fade-in-up">
+                <div class="about-text">
+                    <h2>Why Choose The Maker Hotel?</h2>
+                    <p>Located in the vibrant heart of the city, The Maker Hotel seamlessly blends contemporary luxury with genuine hospitality. Our cutting-edge design and world-class facilities create an unforgettable experience for leisure and business travelers alike.</p>
+                    <ul class="features">
+                        <li>✓ 24/7 Personalized Concierge</li>
+                        <li>✓ Rooftop Infinity Pool & Spa</li>
+                        <li>✓ Michelin-Starred Restaurant</li>
+                        <li>✓ Complimentary High-Speed WiFi</li>
+                        <li>✓ 24-Hour Fitness Center</li>
+                        <li>✓ Valet Parking & EV Charging</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1564507592333-c9164b6b0ce5?w=600&h=450&fit=crop" alt="Hotel Lobby" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Get In Touch</h2>
+            <div class="contact-content fade-in-up">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>📍 Address</h3>
+                        <p>123 Maker Street<br>City Center, NYC 10001<br>United States</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📞 Phone</h3>
+                        <p>+1 (555) 123-4567<br>Available 24/7</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>✉️ Email</h3>
+                        <p>hello@themakerhotel.com<br>reservations@themakerhotel.com</p>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="alert('Thank you for your message! We will contact you within 24 hours.'); return false;">
+                    <input type="text" placeholder="Your Name *" required>
+                    <input type="email" placeholder="Your Email *" required>
+                    <input type="tel" placeholder="Your Phone">
+                    <textarea placeholder="Tell us about your stay requirements..." rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>The Maker Hotel</h3>
+                    <p>Where luxury meets innovation. Your home away from home.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#rooms">Rooms & Suites</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Maker Hotel. All rights reserved. <strong>Made by Aashir</strong></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
